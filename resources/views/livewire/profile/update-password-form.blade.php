@@ -6,8 +6,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Volt\Component;
 
-new class extends Component
-{
+new class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -41,38 +40,64 @@ new class extends Component
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Update Password') }}
+            {{ __('Atualizar senha') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
+            {{ __('Certifique-se de que sua conta esteja usando uma senha longa e aleatória para permanecer segura.') }}
         </p>
     </header>
 
     <form wire:submit="updatePassword" class="mt-6 space-y-6">
         <div>
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-label for="update_password_current_password" :value="__('Senha atual')" />
+            <x-text-input wire:model="current_password" id="update_password_current_password" name="current_password"
+                type="password" class="mt-1 block w-full" autocomplete="current-password" />
             <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password" :value="__('New Password')" />
-            <x-text-input wire:model="password" id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-label for="update_password_password" :value="__('Nova senha')" />
+            <x-text-input wire:model="password" id="update_password_password" name="password" type="password"
+                class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input wire:model="password_confirmation" id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
+            <x-input-label for="update_password_password_confirmation" :value="__('Confirme senha')" />
+            <x-text-input wire:model="password_confirmation" id="update_password_password_confirmation"
+                name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <div class="col-span-full">
+            <div class="text-sm font-medium">
+                Requisitos de senha:
+            </div>
+            <div class="mb-1 text-sm font-normal text-gray-500">
+                Certifique-se de que estes requisitos sejam atendidos:
+            </div>
+            <ul class="pl-4 space-y-1 text-gray-500">
+                <li class="text-xs font-normal">
+                    Pelo menos 10 caracteres (e até 100 caracteres)
+                </li>
+                <li class="text-xs font-normal">
+                    Pelo menos um caractere minúsculo
+                </li>
+                <li class="text-xs font-normal">
+                    Inclusão de pelo menos um caractere especial, por exemplo, ! @#?
+                </li>
+                <li class="text-xs font-normal">
+                    Algum texto aqui zoltan
+                </li>
+            </ul>
+        </div>
+
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Salvar') }}</x-primary-button>
 
             <x-action-message class="me-3" on="password-updated">
-                {{ __('Saved.') }}
+                {{ __('Salvo.') }}
             </x-action-message>
         </div>
     </form>

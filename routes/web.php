@@ -4,6 +4,7 @@ use App\Livewire\Admin\OfferedServices\CreateOfferedServices;
 use App\Livewire\Admin\OfferedServices\EditOfferedServices;
 use App\Livewire\Admin\OfferedServices\IndexOfferedServices;
 use App\Livewire\Home;
+use App\Livewire\Profile\IndexProfile;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', Home::class)->name('home');
@@ -12,7 +13,7 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::view('profile', 'profile')
+Route::get('profile', IndexProfile::class)
     ->middleware(['auth'])
     ->name('profile');
 

@@ -12,13 +12,16 @@ use Livewire\Form;
 
 class LoginForm extends Form
 {
-    #[Validate('required|string|email')]
+    #[Validate('required' , message: 'Email obrigatório')]
+    #[Validate('string', message: 'Tipo de email nao suportado')]
+    #[Validate('email', message: 'Email deve ser um email valido')]
     public string $email = '';
 
-    #[Validate('required|string')]
+    #[Validate('required', message: 'Senha obrigatória')]
+    #[Validate('string', message: 'Tipo de senha não é suportada')]
     public string $password = '';
 
-    #[Validate('boolean')]
+    #[Validate('boolean', message: 'Tipo do manter-me conectado esta errado')]
     public bool $remember = false;
 
     /**
