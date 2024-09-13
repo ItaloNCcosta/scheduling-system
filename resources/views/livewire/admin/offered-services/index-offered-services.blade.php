@@ -58,7 +58,7 @@
                         class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-200 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th scope="row"
                             class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <span class="mx-2 w-5 h-5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
+                            <span class="mx-2 w-5 h-5 border-2 border-white dark:border-gray-800 rounded-full" style="background-color: {{ $item->color }};"></span>
                             {{ $item->name }}
                         </th>
                         <td class="px-6 py-4">
