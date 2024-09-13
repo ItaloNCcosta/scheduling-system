@@ -7,6 +7,9 @@
 
     <title>{{ $title ?? 'Page Title' }}</title>
     @vite('resources/css/app.css')
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 </head>
 
 <body class="bg-gray-200 dark:bg-gray-900">

@@ -1,7 +1,8 @@
 <?php
 
-use App\Livewire\Admin\OfferedServices\Create;
-use App\Livewire\Admin\OfferedServices\Index;
+use App\Livewire\Admin\OfferedServices\CreateOfferedServices;
+use App\Livewire\Admin\OfferedServices\EditOfferedServices;
+use App\Livewire\Admin\OfferedServices\IndexOfferedServices;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +18,9 @@ Route::view('profile', 'profile')
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/offered-services')->name('offered-services.')->group(function () {
-        Route::get('', Index::class)->name('index');
-        Route::get('/create', Create::class)->name('create');
+        Route::get('', IndexOfferedServices::class)->name('index');
+        Route::get('/create', CreateOfferedServices::class)->name('create');
+        Route::get('/edit/{id}', EditOfferedServices::class)->name('edit');
     });
 });
 

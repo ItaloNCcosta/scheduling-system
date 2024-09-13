@@ -1,7 +1,6 @@
 <div>
     <h4 class="text-2xl mb-4 font-bold dark:text-white">Criando serviço</h4>
-    <div
-        class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <form wire:submit="store">
             <div class="grid gap-6 mb-6">
                 <div>
@@ -10,28 +9,35 @@
                     <input type="text" wire:model="name" id="name"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Agendamento de horarios" required />
+                    <div class="text-red-600 dark:text-white">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
             </div>
             <div class="grid gap-6 mb-6">
-                <label for="description" class="block text-sm font-medium text-gray-900 dark:text-white">Descriçao</label>
-                <textarea id="description" rows="4"
+                <label for="description"
+                    class="block text-sm font-medium text-gray-900 dark:text-white">Descriçao</label>
+                <textarea rows="4" wire:model="description"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Ex: Oferecemos um serviço de agendamento de horarios."></textarea>
+                <div class="text-red-600 dark:text-white">
+                    @error('description')
+                        {{ $message }}
+                    @enderror
+                </div>
             </div>
             <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div>
-                    <label for="time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                    <label for="time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Tempo de duração</label>
-                    <input type="numeric" id="time"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="30:00" />
+                    <x-input.time />
                 </div>
                 <div>
                     <label for="price"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preço</label>
-                    <input type="text" id="price"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="10,00" required />
+                    <x-input.price />
                 </div>
             </div>
 
