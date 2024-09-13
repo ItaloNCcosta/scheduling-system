@@ -43,6 +43,9 @@
                         Duração
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Ativado
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Preço
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -54,11 +57,15 @@
                     <tr wire:key="{{ $item->id }}"
                         class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-200 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <span class="mx-2 w-5 h-5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
                             {{ $item->name }}
                         </th>
                         <td class="px-6 py-4">
                             {{ $item->time }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <span class="inline-flex items-center rounded-md {{ $item->isActived ? 'bg-green-100 text-green-700 ring-green-600/20' : 'bg-red-100 text-red-700 ring-red-600/10'}} px-2 py-1 text-xs font-medium ring-1 ring-inset">{{ $item->isActived ? 'Ativado' : 'Desativado'}}</span>
                         </td>
                         <td class="px-6 py-4">
                             R$ {{ $item->price }}

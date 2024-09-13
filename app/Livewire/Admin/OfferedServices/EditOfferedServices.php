@@ -18,6 +18,10 @@ class EditOfferedServices extends Component
 
 	public $price;
 
+	public $color;
+	
+	public $isActived;
+
 	public function rules()
 	{
 		return [
@@ -32,7 +36,9 @@ class EditOfferedServices extends Component
 			],
 			'description' => 'nullable',
 			'time' => 'nullable',
-			'price' => 'required'
+			'price' => 'required',
+			'color' => 'nullable|string',
+			'isActived' => 'nullable|boolean'
 		];
 	}
 
@@ -42,9 +48,7 @@ class EditOfferedServices extends Component
 			'name.required' => 'O nome é obrigatório',
 			'name.max' => 'O nome aceita no máximo 255 caracteres',
 			'name.unique' => 'O nome já existe',
-			'time.numeric' => 'O tempo aceita apenas números',
 			'price.required' => 'O preço é obrigatório',
-			'price.numeric' => 'O preço aceita apenas números'
 		];
 	}
 
@@ -55,6 +59,8 @@ class EditOfferedServices extends Component
 		$this->description = $this->model->description;
 		$this->time = $this->model->time;
 		$this->price = $this->model->price;
+		$this->color = $this->model->color;
+		$this->isActived = $this->model->isActived;
 	}
 
 	public function update()

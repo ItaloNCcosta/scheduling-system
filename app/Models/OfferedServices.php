@@ -14,6 +14,8 @@ class OfferedServices extends Model
     'name',
     'description',
     'time',
-    'price'
+    'price',
+    'color',
+    'isActived'
   ];
 }

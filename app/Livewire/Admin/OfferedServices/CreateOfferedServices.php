@@ -16,6 +16,10 @@ class CreateOfferedServices extends Component
 
 	public $price;
 
+	public $color;
+	
+	public $isActived;
+
 	public function rules()
 	{
 		return [
@@ -30,19 +34,19 @@ class CreateOfferedServices extends Component
 			],
 			'description' => 'nullable',
 			'time' => 'nullable',
-			'price' => 'required'
+			'price' => 'required',
+			'color' => 'nullable|string',
+			'isActived' => 'nullable|boolean'
 		];
 	}
 
 	public function messages()
 	{
 		return [
-			'name.required' => 'O :attribute é obrigatório',
-			'name.max' => 'O :attribute aceita no máximo 255 caracteres',
-			'name.unique' => 'O :attribute já existe',
-			'time.decimal' => 'O :attribute aceita apenas números',
-			'price.required' => 'O :attribute é obrigatório',
-			'price.numeric' => 'O :attribute aceita apenas números'
+			'name.required' => 'O nome é obrigatório',
+			'name.max' => 'O nome aceita no máximo 255 caracteres',
+			'name.unique' => 'O nome já existe',
+			'price.required' => 'O preço é obrigatório',
 		];
 	}
 
