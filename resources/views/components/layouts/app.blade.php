@@ -14,13 +14,14 @@
 
 <body class="bg-gray-200 dark:bg-gray-900">
     <x-layouts.partials.sidebar />
-
-    <main class="p-4 sm:ml-64">
+    
+    <main class="p-4 md:ml-64">
         <x-layouts.partials.content>
             {{ $slot }}
         </x-layouts.partials.content>
     </main>
-
+    
+    <x-layouts.partials.menu-mobile />
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
