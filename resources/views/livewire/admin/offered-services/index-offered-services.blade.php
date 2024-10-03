@@ -43,7 +43,7 @@
                         Duração
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Ativado
+                        Status
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Preço
